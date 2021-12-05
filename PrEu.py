@@ -1,6 +1,7 @@
 import random
 import sys
 
+# Problem 10
 def twoMillPrimesSum(N):
     is_prime = [1]*N
     is_prime[0], is_prime[1] = 0, 0
@@ -23,7 +24,8 @@ def twoMillPrimesSum(N):
             print(i)
             sum += i
     print(sum)
-
+   
+# Problem 765
 def trillionare():
     x0 = 1
 
@@ -51,6 +53,7 @@ def trillionare():
     for r in returns:
         print(r)
 
+# Problem 11
 def adjprodgrid():
     grid = sys.stdin.readlines()
     fr = [str.split(line) for line in grid]
@@ -96,6 +99,7 @@ def adjprodgrid():
     print(c)
     print(c1)
 
+# Problem 12 (attempt)
 # def triangleDivs():
 #     def tNum(n):
         
@@ -122,7 +126,7 @@ def adjprodgrid():
     
 #print(triangleDivs())
 
-
+# Extended Euclidian Algorithm
 def ext_gcd(a, b):
     #(x, y) -> (old, new)
     p = (1, 0)
@@ -135,6 +139,7 @@ def ext_gcd(a, b):
         q = (q[1], q[0] - j*q[1])
     return (r[0], p[0], q[0])
 
+# Fast modular inverse
 def inv_mod(a, z):
     gcd, m, n = ext_gcd(a, z)
     if gcd != 1:
@@ -142,6 +147,7 @@ def inv_mod(a, z):
     else:
         return m % z
 
+# Base 10 -> Base 2 (Fast?)
 def b10tob2(x):
     r = ""
     while x >= 1:
@@ -150,6 +156,7 @@ def b10tob2(x):
         x = x//2
     return r
 
+# Fast Modular Exponent
 def EXP(a, n, p):
     r = 1
     n_bin = b10tob2(n)
@@ -159,6 +166,7 @@ def EXP(a, n, p):
             r = (r * a) % p
     return r
 
+# Problem 16
 def power_digit_sum():
     z = 2**1000
     z = str(z)
@@ -168,6 +176,7 @@ def power_digit_sum():
         sum += int(c)
     print(sum)
 
+# Sieve of Eratosthenes (Find all primes below N)
 def sieve(N):
     is_prime = [1]*N
     is_prime[0], is_prime[1] = 0, 0
@@ -182,7 +191,8 @@ def sieve(N):
             j += i
         i += 1
     return(is_prime)
-    
+
+# Problem 773
 def ruff(index):
     N = 1000
     p = sieve(N)
