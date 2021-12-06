@@ -232,3 +232,32 @@ def ruff(index):
             if kruff(element) and element % 10 == 7:
                 s.append(element)
     print(F_k(index))
+
+# problem 55
+def lychrel():
+    def revNum(n):
+        rev = 0
+        while(n > 0):
+            a = n % 10
+            rev = rev * 10 + a
+            n = n // 10
+        return rev
+    
+    def addpalin(n):
+        return n + revNum(n)
+    
+    ps = []
+    notps = []
+    for i in range(0, 10000):
+        n = i
+        for j in range(0, 50):
+            n = addpalin(n)
+            if n == revNum(n):
+                ps.append(n)
+                print("i: "+str(i)+" j: "+str(j))
+                break
+            if j == 49:
+                notps.append(i)
+            
+    print(notps)
+    print(len(notps))
